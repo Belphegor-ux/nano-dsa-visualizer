@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+}
+
+body {
+  @apply bg-slate-950 text-slate-50;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.glass-morphism {
+  @apply bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl;
+}
+
+.banana-gradient {
+  @apply bg-gradient-to-br from-yellow-400 to-yellow-600;
+}

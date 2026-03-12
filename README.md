@@ -1,46 +1,73 @@
-# ⚡ NanoDSA Visualizer (Nano-Banana Edition) 🍌
+# React + TypeScript + Vite
 
-A high-performance, visually striking web-based visualizer for Data Structures and Algorithms. Built for speed and "flashy" aesthetics using modern React primitives.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Framer Motion](https://img.shields.io/badge/Framer-Motion-black?style=for-the-badge&logo=framer&logoColor=blue)
+Currently, two official plugins are available:
 
-## ✨ Features
-- **Flashy UI:** Glass-morphism design with backdrop blurs and "Banana Gradient" accents.
-- **Smooth Animations:** Powered by Framer Motion for 60fps layout transitions.
-- **Real-time Metrics:** Live tracking of algorithm status and time complexity.
-- **Nano-Banana Performance:** Built with Vite for near-instant hot reloads.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## 🚀 Quick Start
+## React Compiler
 
-### Prerequisites
-- [Node.js](https://nodejs.org/) (v18+)
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-### Installation
-```bash
-git clone https://github.com/Belphegor-ux/nano-dsa-visualizer.git
-cd nano-dsa-visualizer
-npm install
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
-### Running Development Server
-```bash
-npm run dev
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
-Open [http://localhost:5173](http://localhost:5173) to see the visualizer in action.
-
-## 🛠️ Tech Stack
-- **Framework:** React 18 (TypeScript)
-- **Build Tool:** Vite
-- **Styling:** Tailwind CSS
-- **Animations:** Framer Motion
-- **Icons:** Lucide React
-
-## 📈 Roadmap
-- [ ] Add Pathfinding Visualizations (Dijkstra, A*)
-- [ ] Add Tree/Graph Data Structures
-- [ ] Dark/Light Mode toggle (Glass-morphism optimized)
-
----
-Built with 🍌 by [Belphegor-ux](https://github.com/Belphegor-ux)
