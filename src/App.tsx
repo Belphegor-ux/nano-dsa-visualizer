@@ -45,7 +45,7 @@ const DSAVisualizer: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen p-8 flex flex-col items-center">
+    <div className="min-h-screen p-8 flex flex-col items-center bg-slate-950 text-slate-50 overflow-x-hidden">
       {/* Header */}
       <motion.div 
         initial={{ y: -50, opacity: 0 }}
@@ -77,7 +77,7 @@ const DSAVisualizer: React.FC = () => {
       </motion.div>
 
       {/* Main Visualization Area */}
-      <div className="w-full max-w-4xl glass-morphism p-12 rounded-3xl h-[400px] flex items-end justify-between gap-2 text-slate-50">
+      <div className="w-full max-w-4xl glass-morphism p-12 rounded-3xl h-[400px] flex items-end justify-between gap-2 border-white/5 bg-white/[0.02]">
         <AnimatePresence>
           {array.map((value, idx) => (
             <motion.div
@@ -101,7 +101,7 @@ const DSAVisualizer: React.FC = () => {
       </div>
 
       {/* Footer Info / Stats */}
-      <div className="w-full max-w-4xl mt-12 grid grid-cols-3 gap-6">
+      <div className="w-full max-w-4xl mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="glass-morphism p-4 rounded-xl flex items-center gap-4">
           <BarChart3 className="text-yellow-500" />
           <div>
